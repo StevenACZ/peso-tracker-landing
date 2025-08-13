@@ -1,0 +1,141 @@
+---
+// Installation guide component
+const steps = [
+  {
+    number: "01",
+    title: "Descargar DMG",
+    description: "Descarga el archivo DMG desde GitHub releases",
+    icon: "⬇️",
+    detail: "Haz clic en el botón de descarga para obtener la versión más reciente"
+  },
+  {
+    number: "02",
+    title: "Abrir el Archivo",
+    description: "Hace doble clic en el DMG descargado",
+    icon: "📦",
+    detail: "Se montará automáticamente mostrando el contenido de instalación"
+  },
+  {
+    number: "03",
+    title: "Arrastrar a Aplicaciones",
+    description: "Arrastra PesoTracker a la carpeta Aplicaciones",
+    icon: "📱",
+    detail: "¡Listo! Ya puedes ejecutar PesoTracker desde Launchpad"
+  }
+];
+---
+
+<section class="py-16 lg:py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Instalación Fácil
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+        Solo tres pasos sencillos para tener PesoTracker funcionando en tu Mac
+      </p>
+      <div class="inline-flex items-center px-4 py-2 bg-green-100 rounded-full border border-green-200">
+        <svg class="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-sm font-medium text-green-800">Timeline de Instalación</span>
+      </div>
+    </div>
+
+    <!-- Installation Steps -->
+    <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+      {steps.map((step, index) => (
+        <div class="relative">
+          {/* Connection Line */}
+          {index < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-16 left-full w-full h-1 bg-gradient-to-r from-green-400 to-emerald-400 transform translate-x-4 z-0 opacity-30"></div>
+          )}
+          
+          <div class="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-green-200 z-10 h-full">
+            <!-- Step Number -->
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm mr-4">
+                {step.number}
+              </div>
+              <div class="text-3xl" aria-hidden="true">{step.icon}</div>
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              {step.title}
+            </h3>
+            <p class="text-gray-600 mb-3 leading-relaxed text-sm">
+              {step.description}
+            </p>
+            <p class="text-xs text-gray-600">
+              {step.detail}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Additional Info -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Security Info -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+            <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">
+            Seguridad Garantizada
+          </h3>
+        </div>
+        <p class="text-gray-600 leading-relaxed">
+          PesoTracker está firmada digitalmente por Apple, garantizando que es una aplicación segura y auténtica. 
+          No requiere permisos especiales del sistema.
+        </p>
+      </div>
+
+      <!-- Support Info -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+            <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900">
+            Soporte Disponible
+          </h3>
+        </div>
+        <p class="text-gray-600 leading-relaxed">
+          ¿Necesitas ayuda? Visita nuestro repositorio en GitHub para documentación, 
+          reportar problemas o solicitar nuevas funcionalidades.
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick Action -->
+    <div class="mt-16 text-center">
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 lg:p-12 border border-green-100">
+        <h3 class="text-2xl font-bold text-green-900 mb-4">
+          ¿Listo para Empezar?
+        </h3>
+        <p class="text-lg text-green-800 mb-6">
+          Descarga PesoTracker ahora y comienza a llevar un seguimiento profesional de tu peso
+        </p>
+        <a 
+          href="https://github.com/StevenACZ/peso-tracker/releases/tag/v1.0.0" 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+          class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+        >
+          <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+          Descargar PesoTracker v1.0.0
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,136 @@
+---
+// Screenshots carousel component
+const screenshots = [
+  {
+    id: "01-login",
+    title: "Inicio de Sesión",
+    description: "Autenticación segura con JWT",
+    filename: "01-login.png"
+  },
+  {
+    id: "02-register",
+    title: "Registro de Usuario",
+    description: "Proceso simple y rápido",
+    filename: "02-register.png"
+  },
+  {
+    id: "03-dashboard",
+    title: "Dashboard Principal",
+    description: "Vista completa de tu progreso",
+    filename: "03-dashboard.png"
+  },
+  {
+    id: "04-add-weight",
+    title: "Agregar Peso",
+    description: "Modal con foto de progreso",
+    filename: "04-add-weight.png"
+  },
+  {
+    id: "05-charts",
+    title: "Gráficos y Estadísticas",
+    description: "Análisis visual detallado",
+    filename: "05-charts.png"
+  },
+  {
+    id: "06-goals",
+    title: "Sistema de Metas",
+    description: "Objetivos personalizables",
+    filename: "06-goals.png"
+  },
+  {
+    id: "07-progress",
+    title: "Galería de Progreso",
+    description: "Fotos organizadas por fecha",
+    filename: "07-progress.png"
+  },
+  {
+    id: "08-bmi-calculator",
+    title: "Calculadora BMI",
+    description: "Con clasificaciones médicas",
+    filename: "08-bmi-calculator.png"
+  },
+  {
+    id: "09-export",
+    title: "Exportación de Datos",
+    description: "CSV + fotos organizadas",
+    filename: "09-export.png"
+  }
+];
+---
+
+<section class="py-16 lg:py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Capturas de Pantalla
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Explora todas las funcionalidades de PesoTracker con estas capturas reales de la aplicación
+      </p>
+    </div>
+
+    <!-- Screenshots Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {screenshots.map((screenshot, index) => (
+        <div class="group cursor-pointer">
+          <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-green-200">
+            <!-- Screenshot Placeholder -->
+            <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden group-hover:from-green-50 group-hover:to-emerald-50 transition-all duration-300" role="img" aria-label={`Captura de pantalla: ${screenshot.title}`}>
+              <div class="text-center text-gray-500 group-hover:text-green-600 transition-colors duration-300">
+                <div class="text-4xl mb-3" aria-hidden="true">
+                  {index === 0 && "🔐"}
+                  {index === 1 && "📝"}
+                  {index === 2 && "📊"}
+                  {index === 3 && "⚖️"}
+                  {index === 4 && "📈"}
+                  {index === 5 && "🎯"}
+                  {index === 6 && "📷"}
+                  {index === 7 && "🧮"}
+                  {index === 8 && "💾"}
+                </div>
+                <div class="text-sm font-medium">{screenshot.filename}</div>
+              </div>
+              
+              <!-- Hover overlay -->
+              <div class="absolute inset-0 bg-green-600 bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-700 transition-colors duration-300">
+                {screenshot.title}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {screenshot.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Navigation Info -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex items-center px-6 py-3 bg-white rounded-full shadow-md border border-gray-200">
+        <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-sm text-gray-700">Las capturas se mostrarán aquí una vez subidas las imágenes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Add click handlers for screenshot modals (future enhancement)
+  document.addEventListener('DOMContentLoaded', function() {
+    const screenshots = document.querySelectorAll('[data-screenshot]');
+    screenshots.forEach(screenshot => {
+      screenshot.addEventListener('click', function() {
+        // Future: Open modal with full-size screenshot
+        console.log('Screenshot clicked:', this.dataset.screenshot);
+      });
+    });
+  });
+</script>

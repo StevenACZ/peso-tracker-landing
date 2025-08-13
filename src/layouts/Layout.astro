@@ -1,0 +1,82 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { title, description = "PesoTracker - La aplicación más completa para gestionar tu peso con tecnología de vanguardia. Desarrollada para macOS con SwiftUI.", keywords = "pesotracker, weight tracker, seguimiento peso, macos, swift, salud, peso, aplicacion peso" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Steven ACZ" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="PesoTracker" />
+  <meta property="og:image" content="https://stevenacz.com/peso-tracker/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PesoTracker - Seguimiento de Peso Moderno para macOS" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://stevenacz.com/peso-tracker/og-image.png" />
+  <meta name="twitter:image:alt" content="PesoTracker - Seguimiento de Peso Moderno para macOS" />
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PesoTracker",
+      "description": "Aplicación completa para seguimiento de peso en macOS",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "macOS",
+      "author": {
+        "@type": "Person",
+        "name": "Steven ACZ"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://github.com/StevenACZ/peso-tracker/releases/tag/v1.0.0"
+    }
+  </script>
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#16a34a" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="canonical" href="https://stevenacz.com/peso-tracker/" />
+  
+  <title>{title}</title>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <slot />
+</body>
+</html>
+
+<style>
+  @import '../styles/global.css';
+</style>

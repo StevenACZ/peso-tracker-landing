@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* Custom styles for better accessibility and consistency */
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus styles for better accessibility */
+  *:focus {
+    outline: 2px solid theme('colors.green.500');
+    outline-offset: 2px;
+  }
+  
+  /* Remove focus outline for mouse users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Ensure proper line height for readability */
+  body {
+    line-height: 1.6;
+  }
+  
+  /* Ensure minimum contrast ratios */
+  .text-on-dark {
+    color: theme('colors.gray.100');
+  }
+  
+  .text-on-dark-secondary {
+    color: theme('colors.gray.300');
+  }
+  
+  .text-on-light {
+    color: theme('colors.gray.900');
+  }
+  
+  .text-on-light-secondary {
+    color: theme('colors.gray.600');
+  }
+}
+
+@layer components {
+  /* Custom button styles */
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 text-base font-semibold text-green-700 bg-white hover:bg-green-50 rounded-lg border-2 border-green-200 hover:border-green-300 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-200;
+  }
+  
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+  
+  /* Container max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, theme('colors.green.600'), theme('colors.emerald.600'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glass effect */
+  .glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* High contrast text utilities */
+  .text-high-contrast-light {
+    color: theme('colors.gray.900');
+  }
+  
+  .text-high-contrast-dark {
+    color: theme('colors.gray.50');
+  }
+  
+  .text-medium-contrast-light {
+    color: theme('colors.gray.700');
+  }
+  
+  .text-medium-contrast-dark {
+    color: theme('colors.gray.200');
+  }
+}

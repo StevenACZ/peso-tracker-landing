@@ -1,0 +1,107 @@
+---
+// Features grid component
+const features = [
+  {
+    icon: "🔐",
+    title: "Autenticación Avanzada",
+    description: "Sistema JWT con renovación automática de tokens para máxima seguridad"
+  },
+  {
+    icon: "⚖️",
+    title: "Seguimiento Completo",
+    description: "Registro detallado de peso con fotos de progreso y historial completo"
+  },
+  {
+    icon: "🎯",
+    title: "Metas Personalizadas",
+    description: "Define objetivos específicos y sigue tu progreso hacia ellos"
+  },
+  {
+    icon: "📈",
+    title: "Gráficos Interactivos",
+    description: "Análisis visual con filtros temporales (7d, 30d, 90d, 1a)"
+  },
+  {
+    icon: "🧮",
+    title: "Calculadora BMI",
+    description: "Integrada con clasificaciones médicas oficiales"
+  },
+  {
+    icon: "📷",
+    title: "Galería Inteligente",
+    description: "Fotos organizadas con carga optimizada por Cloudflare"
+  },
+  {
+    icon: "💾",
+    title: "Exportación Total",
+    description: "Descarga todos tus datos en CSV con fotos organizadas"
+  },
+  {
+    icon: "⚡",
+    title: "Rendimiento Cloudflare",
+    description: "Velocidad y confiabilidad máxima con cache inteligente"
+  }
+];
+---
+
+<section class="py-16 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Características Principales
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Desarrollado con SwiftUI y las mejores tecnologías para ofrecerte una experiencia excepcional
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
+      {features.map((feature) => (
+        <div class="group">
+          <div class="bg-white p-6 lg:p-8 rounded-xl border border-gray-200 hover:border-green-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
+            <div class="text-center">
+              <!-- Icon -->
+              <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                {feature.icon}
+              </div>
+              
+              <!-- Title -->
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                {feature.title}
+              </h3>
+              
+              <!-- Description -->
+              <p class="text-gray-600 leading-relaxed text-sm">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Additional Info -->
+    <div class="mt-16 text-center">
+      <div class="bg-green-50 rounded-2xl p-8 lg:p-12 border border-green-100">
+        <div class="max-w-4xl mx-auto">
+          <h3 class="text-2xl font-bold text-green-900 mb-4">
+            Tecnología de Vanguardia
+          </h3>
+          <p class="text-lg text-green-800 leading-relaxed mb-8">
+            Desarrollado con SwiftUI para macOS, integración con Cloudflare para máximo rendimiento, 
+            sistema de cache LRU inteligente y arquitectura robusta con manejo de errores automático.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 text-sm">
+            <span class="px-4 py-2 bg-white rounded-full text-green-700 border border-green-200">SwiftUI</span>
+            <span class="px-4 py-2 bg-white rounded-full text-green-700 border border-green-200">JWT</span>
+            <span class="px-4 py-2 bg-white rounded-full text-green-700 border border-green-200">Cloudflare</span>
+            <span class="px-4 py-2 bg-white rounded-full text-green-700 border border-green-200">macOS 15.5+</span>
+            <span class="px-4 py-2 bg-white rounded-full text-green-700 border border-green-200">Open Source</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+{
+  "name": "peso-tracker-landing",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Landing page profesional para PesoTracker - Seguimiento de Peso Moderno para macOS",
+  "keywords": ["pesotracker", "weight tracker", "macos", "seguimiento peso", "swift", "salud"],
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.9",
+    "tailwindcss": "^4.1.11"
+  }
+}

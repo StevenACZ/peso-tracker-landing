@@ -1,0 +1,131 @@
+---
+// System Requirements component
+const requirements = [
+  {
+    icon: "💻",
+    title: "Sistema Operativo",
+    value: "macOS 15.5 o superior",
+    description: "Optimizado para las últimas versiones de macOS"
+  },
+  {
+    icon: "📺",
+    title: "Resolución",
+    value: "Mínimo 1000x700 píxeles",
+    description: "Interfaz adaptable a diferentes tamaños de pantalla"
+  },
+  {
+    icon: "🌐",
+    title: "Conexión",
+    value: "Internet para sincronización",
+    description: "Requerida para autenticación y respaldo de datos"
+  },
+  {
+    icon: "💾",
+    title: "Almacenamiento",
+    value: "50 MB aproximadamente",
+    description: "Incluye la app y espacio para datos locales"
+  }
+];
+---
+
+<section class="py-16 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Column - Content -->
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          Requisitos del Sistema
+        </h2>
+        
+        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+          PesoTracker está diseñado para funcionar de manera óptima en los sistemas macOS más recientes, 
+          aprovechando al máximo las capacidades nativas del sistema.
+        </p>
+
+        <!-- Requirements List -->
+        <div class="space-y-6">
+          {requirements.map((req) => (
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <span class="text-lg" aria-hidden="true">{req.icon}</span>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-base font-semibold text-gray-900 mb-1">
+                  {req.title}
+                </h3>
+                <p class="text-green-600 font-medium mb-1 text-sm">
+                  {req.value}
+                </p>
+                <p class="text-gray-600 text-xs">
+                  {req.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Compatibility Badge -->
+        <div class="mt-8 inline-flex items-center px-4 py-2 bg-green-50 rounded-full border border-green-200">
+          <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-sm font-medium text-green-800">100% Nativo para macOS</span>
+        </div>
+      </div>
+
+      <!-- Right Column - Visual -->
+      <div class="relative">
+        <div class="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
+          <!-- macOS Window Header -->
+          <div class="bg-gray-800 px-4 py-3 flex items-center space-x-2">
+            <div class="flex space-x-2">
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>
+            <div class="flex-1 text-center">
+              <span class="text-gray-300 text-sm">PesoTracker</span>
+            </div>
+          </div>
+          
+          <!-- System Info Display -->
+          <div class="p-8 text-green-400 font-mono text-sm space-y-3">
+            <div class="flex justify-between">
+              <span class="text-gray-500">Sistema:</span>
+              <span>macOS Sequoia 15.5</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Procesador:</span>
+              <span>Apple Silicon / Intel</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Memoria:</span>
+              <span>8 GB RAM recomendado</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Resolución:</span>
+              <span>1000x700+ píxeles</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Conexión:</span>
+              <span>Internet requerida</span>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-gray-700">
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                <span class="text-green-400">Sistema Compatible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute -top-6 -right-6 w-20 h-20 bg-green-500 rounded-full opacity-10 animate-bounce delay-75"></div>
+        <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-emerald-400 rounded-full opacity-5 animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+</section>
