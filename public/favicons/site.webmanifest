@@ -1,0 +1,22 @@
+{
+  "name": "PesoTracker - Seguimiento de Peso para macOS",
+  "short_name": "PesoTracker",
+  "description": "Aplicación completa para seguimiento de peso en macOS con SwiftUI",
+  "icons": [
+    {
+      "src": "/peso-tracker/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/peso-tracker/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#16a34a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/peso-tracker/",
+  "scope": "/peso-tracker/"
+}
