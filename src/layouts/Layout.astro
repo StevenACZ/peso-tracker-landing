@@ -1,4 +1,6 @@
 ---
+import { getAsset } from 'astro:assets';
+
 export interface Props {
   title: string;
   description?: string;
@@ -6,6 +8,9 @@ export interface Props {
 }
 
 const { title, description = "PesoTracker - La aplicación más completa para gestionar tu peso con tecnología de vanguardia. Desarrollada para macOS con SwiftUI.", keywords = "pesotracker, weight tracker, seguimiento peso, macos, swift, salud, peso, aplicacion peso" } = Astro.props;
+
+// Helper para assets con base path
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path.startsWith('/') ? path.slice(1) : path}`;
 ---
 
 <!doctype html>
@@ -59,11 +64,11 @@ const { title, description = "PesoTracker - La aplicación más completa para ge
   </script>
   
   <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
+  <link rel="icon" type="image/png" sizes="32x32" href={asset('/favicon-32x32.png')} />
+  <link rel="icon" type="image/png" sizes="16x16" href={asset('/favicon-16x16.png')} />
+  <link rel="apple-touch-icon" sizes="180x180" href={asset('/apple-touch-icon.png')} />
+  <link rel="manifest" href={asset('/site.webmanifest')} />
   
   <!-- Additional SEO -->
   <meta name="theme-color" content="#16a34a" />
