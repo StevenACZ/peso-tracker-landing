@@ -115,12 +115,13 @@ const screenshots = [
 
 <script>
   // Add click handlers for screenshot modals (future enhancement)
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     const screenshots = document.querySelectorAll('[data-screenshot]');
-    screenshots.forEach(screenshot => {
-      screenshot.addEventListener('click', function() {
+    screenshots.forEach((screenshot) => {
+      screenshot.addEventListener('click', (event) => {
         // Future: Open modal with full-size screenshot
-        console.log('Screenshot clicked:', this.dataset.screenshot);
+        const target = event.currentTarget as HTMLElement;
+        console.log('Screenshot clicked:', target.dataset.screenshot);
       });
     });
   });
