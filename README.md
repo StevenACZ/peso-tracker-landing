@@ -6,7 +6,7 @@ Landing page profesional para PesoTracker - Seguimiento de Peso Moderno para mac
 
 - **Framework:** Astro (SSG)
 - **Estilos:** Tailwind CSS
-- **Deployment:** Docker + Cloudflare Tunnels
+- **Deployment:** Estático (SSG)
 - **Dominio:** pesotracker.stevenacz.com
 
 ## 📦 Instalación
@@ -25,18 +25,9 @@ npm run build
 npm run preview
 ```
 
-## 🐳 Docker
+## 🚀 Deployment
 
-```bash
-# Build y ejecutar con Docker Compose
-docker-compose up --build
-
-# Solo build
-docker build -t pesotracker-landing .
-
-# Ejecutar contenedor
-docker run -p 3000:80 pesotracker-landing
-```
+El proyecto está listo para ser desplegado en cualquier servidor web. Después del build, la carpeta `dist/` contiene todos los archivos estáticos necesarios.
 
 ## 📱 Sobre PesoTracker
 
@@ -60,7 +51,7 @@ PesoTracker es una aplicación nativa de macOS desarrollada con SwiftUI para el 
 
 ## 🔗 Enlaces
 
-- [Descargar PesoTracker v1.0.0](https://github.com/StevenACZ/peso-tracker/releases/tag/v1.0.0)
+- [Descargar PesoTracker v1.2.3](https://github.com/StevenACZ/peso-tracker/releases/tag/v1.2.3)
 - [Código fuente de la app](https://github.com/StevenACZ/peso-tracker)
 - [Todas las versiones](https://github.com/StevenACZ/peso-tracker/releases)
 
