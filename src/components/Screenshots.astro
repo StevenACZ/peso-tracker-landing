@@ -1,59 +1,54 @@
 ---
 // Screenshots carousel component
+const baseUrl = import.meta.env.BASE_URL;
 const screenshots = [
   {
     id: "01-login",
     title: "Inicio de Sesión",
     description: "Autenticación segura con JWT",
-    filename: "01-login.png"
+    filename: "login.webp"
   },
   {
     id: "02-register",
     title: "Registro de Usuario",
     description: "Proceso simple y rápido",
-    filename: "02-register.png"
+    filename: "register.webp"
   },
   {
     id: "03-dashboard",
     title: "Dashboard Principal",
     description: "Vista completa de tu progreso",
-    filename: "03-dashboard.png"
+    filename: "dashboard.webp"
   },
   {
     id: "04-add-weight",
     title: "Agregar Peso",
     description: "Modal con foto de progreso",
-    filename: "04-add-weight.png"
+    filename: "agregar-peso.webp"
   },
   {
     id: "05-charts",
     title: "Gráficos y Estadísticas",
     description: "Análisis visual detallado",
-    filename: "05-charts.png"
+    filename: "grafico.webp"
   },
   {
     id: "06-goals",
     title: "Sistema de Metas",
     description: "Objetivos personalizables",
-    filename: "06-goals.png"
+    filename: "metas.webp"
   },
   {
-    id: "07-progress",
-    title: "Galería de Progreso",
-    description: "Fotos organizadas por fecha",
-    filename: "07-progress.png"
-  },
-  {
-    id: "08-bmi-calculator",
-    title: "Calculadora BMI",
+    id: "07-bmi-calculator",
+    title: "Calculadora IMC",
     description: "Con clasificaciones médicas",
-    filename: "08-bmi-calculator.png"
+    filename: "calculadora-bmi.webp"
   },
   {
-    id: "09-export",
+    id: "08-export",
     title: "Exportación de Datos",
     description: "CSV + fotos organizadas",
-    filename: "09-export.png"
+    filename: "exportacion-datos.webp"
   }
 ];
 ---
@@ -73,27 +68,30 @@ const screenshots = [
     <!-- Screenshots Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {screenshots.map((screenshot, index) => (
-        <div class="group cursor-pointer">
+        <div class="group cursor-pointer" data-screenshot={screenshot.id}>
           <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-green-200">
-            <!-- Screenshot Placeholder -->
-            <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden group-hover:from-green-50 group-hover:to-emerald-50 transition-all duration-300" role="img" aria-label={`Captura de pantalla: ${screenshot.title}`}>
-              <div class="text-center text-gray-500 group-hover:text-green-600 transition-colors duration-300">
-                <div class="text-4xl mb-3" aria-hidden="true">
-                  {index === 0 && "🔐"}
-                  {index === 1 && "📝"}
-                  {index === 2 && "📊"}
-                  {index === 3 && "⚖️"}
-                  {index === 4 && "📈"}
-                  {index === 5 && "🎯"}
-                  {index === 6 && "📷"}
-                  {index === 7 && "🧮"}
-                  {index === 8 && "💾"}
-                </div>
-                <div class="text-sm font-medium">{screenshot.filename}</div>
-              </div>
+            <!-- Real Screenshot with Ray.so style -->
+            <div class="aspect-square relative overflow-hidden bg-gradient-to-br from-green-400 via-green-500 to-emerald-600 p-6 flex items-center justify-center">
+              <img 
+                src={`${baseUrl}screenshots/${screenshot.filename}`}
+                alt={`Captura de pantalla: ${screenshot.title} - ${screenshot.description}`}
+                class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                loading="eager"
+                onload="this.style.opacity='1'"
+                onerror="console.error('Image failed to load:', this.src); this.parentElement.style.backgroundColor='#ef4444'"
+                style="opacity: 0; transition: opacity 0.3s ease; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));"
+              />
               
               <!-- Hover overlay -->
-              <div class="absolute inset-0 bg-green-600 bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+              <div class="absolute inset-0 bg-transparent transition-all duration-300 flex items-center justify-center">
+                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out">
+                  <div class="bg-white/95 rounded-full p-4 shadow-2xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
             
             <!-- Content -->
@@ -113,16 +111,119 @@ const screenshots = [
   </div>
 </section>
 
-<script>
-  // Add click handlers for screenshot modals (future enhancement)
+<!-- Modal for full-size screenshots -->
+<div 
+  id="screenshot-modal" 
+  class="fixed inset-0 bg-white/90 backdrop-blur-md z-50 hidden items-center justify-center p-4 transition-all duration-300 opacity-0"
+  style="backdrop-filter: blur(12px);"
+>
+  <div class="relative max-w-7xl max-h-[95vh] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-transform duration-300 scale-95">
+    <!-- Header with close button -->
+    <div class="absolute top-4 right-4 z-10">
+      <button 
+        id="close-modal" 
+        class="bg-white/90 hover:bg-white rounded-full p-2.5 shadow-lg hover:shadow-xl transition-all duration-200 backdrop-blur-sm"
+        aria-label="Cerrar modal"
+      >
+        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Image container - full space -->
+    <div class="p-4">
+      <img 
+        id="modal-image" 
+        src="" 
+        alt="" 
+        class="w-full h-auto max-h-[90vh] object-contain rounded-lg"
+      >
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ baseUrl }}>
   document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('screenshot-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModal = document.getElementById('close-modal');
     const screenshots = document.querySelectorAll('[data-screenshot]');
+
+    // Open modal when clicking on screenshots
     screenshots.forEach((screenshot) => {
       screenshot.addEventListener('click', (event) => {
-        // Future: Open modal with full-size screenshot
-        const target = event.currentTarget as HTMLElement;
-        console.log('Screenshot clicked:', target.dataset.screenshot);
+        const target = event.currentTarget;
+        const screenshotData = target.dataset.screenshot;
+        
+        // Find the corresponding screenshot data
+        const allScreenshots = [
+          { id: "01-login", filename: "login.webp", title: "Inicio de Sesión" },
+          { id: "02-register", filename: "register.webp", title: "Registro de Usuario" },
+          { id: "03-dashboard", filename: "dashboard.webp", title: "Dashboard Principal" },
+          { id: "04-add-weight", filename: "agregar-peso.webp", title: "Agregar Peso" },
+          { id: "05-charts", filename: "grafico.webp", title: "Gráficos y Estadísticas" },
+          { id: "06-goals", filename: "metas.webp", title: "Sistema de Metas" },
+          { id: "07-bmi-calculator", filename: "calculadora-bmi.webp", title: "Calculadora IMC" },
+          { id: "08-export", filename: "exportacion-datos.webp", title: "Exportación de Datos" }
+        ];
+        
+        const currentScreenshot = allScreenshots.find(s => s.id === screenshotData);
+        
+        if (currentScreenshot && modal && modalImage) {
+          modalImage.src = `${baseUrl}screenshots/${currentScreenshot.filename}`;
+          modalImage.alt = `Captura completa: ${currentScreenshot.title}`;
+          
+          // Show modal with animation
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+          
+          // Animate in
+          requestAnimationFrame(() => {
+            modal.style.opacity = '1';
+            const container = modal.querySelector('.relative');
+            if (container) {
+              container.style.transform = 'scale(1)';
+            }
+          });
+        }
       });
+    });
+
+    // Close modal with animation
+    const handleCloseModal = () => {
+      if (modal) {
+        // Animate out
+        modal.style.opacity = '0';
+        const container = modal.querySelector('.relative');
+        if (container) {
+          container.style.transform = 'scale(0.95)';
+        }
+        
+        // Hide after animation
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = 'auto';
+        }, 300);
+      }
+    };
+
+    closeModal?.addEventListener('click', handleCloseModal);
+    
+    // Close on background click
+    modal?.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        handleCloseModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        handleCloseModal();
+      }
     });
   });
 </script>
