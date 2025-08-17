@@ -93,7 +93,7 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}${path.startsWith('/
 Screenshots are defined as data objects with metadata (title, description, filename) and rendered in a responsive carousel.
 
 ### External Links
-- Download links point to GitHub releases: `https://github.com/StevenACZ/peso-tracker/releases/tag/v1.2.3`
+- Download links point to GitHub releases: `https://github.com/StevenACZ/peso-tracker/releases/tag/v1.2.4`
 - All external links use proper `rel="nofollow noopener noreferrer"`
 
 ### Styling Approach

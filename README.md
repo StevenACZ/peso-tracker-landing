@@ -51,7 +51,7 @@ PesoTracker es una aplicación nativa de macOS desarrollada con SwiftUI para el 
 
 ## 🔗 Enlaces
 
-- [Descargar PesoTracker v1.2.3](https://github.com/StevenACZ/peso-tracker/releases/tag/v1.2.3)
+- [Descargar PesoTracker v1.2.4](https://github.com/StevenACZ/peso-tracker/releases/tag/v1.2.4)
 - [Código fuente de la app](https://github.com/StevenACZ/peso-tracker)
 - [Todas las versiones](https://github.com/StevenACZ/peso-tracker/releases)
 
